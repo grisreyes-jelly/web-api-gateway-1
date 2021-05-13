@@ -30,7 +30,7 @@ import (
 
 	uuid "github.com/gofrs/uuid"
 	option "google.golang.org/api/option"
-	plus "google.golang.org/api/plus/v1"
+	plus "google.golang.org/api/people/v1"
 
 	"github.com/google/web-api-gateway/config"
 	"github.com/gorilla/mux"
