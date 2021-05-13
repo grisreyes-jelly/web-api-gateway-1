@@ -78,7 +78,7 @@ type data struct {
 
 type profile struct {
 	ID, DisplayName, ImageURL string
-	Emails                    []*plus.people.EmailAddress
+	Emails                    []*plus.people.EmailAddress;
 }
 
 func init() {
