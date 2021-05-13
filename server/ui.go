@@ -58,8 +58,8 @@ var (
 )
 
 var oauthConf *oauth2.Config = &oauth2.Config{
-	ClientID:     "523939206127-3pr1qbrn0g78l6r9nu10l733q9obgn0t.apps.googleusercontent.com",
-	ClientSecret: "zKY48Os4L8xKAuQoiBFqrLkW",
+	ClientID:     "22446720946-fl25pr7jht8om683sopquhoao6skr67n.apps.googleusercontent.com",
+	ClientSecret: "vq7MGXfORSR_rQwhF0QdxmWJ",
 	Scopes:       []string{"email", "profile"},
 	Endpoint:     google.Endpoint,
 }
