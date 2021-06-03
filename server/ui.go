@@ -688,9 +688,9 @@ func engineFromRequest(engineStr string) (*config.Engine, error) {
 
 func stripProfile(p *people.Person) *profile {
 	return &profile{
-		Emails:      p.Emails,
-		DisplayName: p.DisplayName,
-		ImageURL:    p.Image.Url,
+		Emails:      p.EmailAddress,
+		DisplayName: p.Name,
+		//ImageURL:    p.Image.Url,
 	}
 }
 
