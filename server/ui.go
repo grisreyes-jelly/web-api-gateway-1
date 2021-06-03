@@ -77,8 +77,8 @@ type data struct {
 }
 
 type profile struct {
-	ID, DisplayName string
-	Emails                    []*people.person.EmailAddress
+	ID, DisplayName string,
+	Emails         []*people.person.EmailAddress
 }
 
 func init() {
