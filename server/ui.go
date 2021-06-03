@@ -30,7 +30,7 @@ import (
 
 	uuid "github.com/gofrs/uuid"
 	option "google.golang.org/api/option"
-	plus "google.golang.org/api/people/v1"
+	people "google.golang.org/api/people/v1"
 
 	"github.com/google/web-api-gateway/config"
 	"github.com/gorilla/mux"
@@ -78,7 +78,7 @@ type data struct {
 
 type profile struct {
 	ID, DisplayName, ImageURL string
-	Emails                    []*plus.EmailAddress
+	Emails                    []*people.EmailAddress
 }
 
 func init() {
@@ -686,7 +686,7 @@ func engineFromRequest(engineStr string) (*config.Engine, error) {
 	return nil, fmt.Errorf("No such engine: %s", engineStr)
 }
 
-func stripProfile(p *plus.Person) *profile {
+func stripProfile(p *people.Person) *profile {
 	return &profile{
 		Emails:      p.Emails,
 		DisplayName: p.DisplayName,
