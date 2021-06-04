@@ -1,4 +1,5 @@
-module github.com/grisreyes-jelly/web-api-gateway-final
+module github.com/google/web-api-gateway
+
 require (
 	github.com/gofrs/uuid v3.2.0+incompatible
 	github.com/gorilla/mux v1.7.3
