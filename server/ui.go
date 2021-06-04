@@ -77,9 +77,10 @@ type data struct {
 }
 
 type profile struct {
-	ID, DisplayName string,
+	ID             string,
+	DisplayName    string,
 	Emails         []*plus.EmailAddress,
-	},
+}
 
 func init() {
 	gob.Register(&oauth2.Token{})
