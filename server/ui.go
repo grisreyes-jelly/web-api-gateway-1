@@ -79,7 +79,7 @@ type data struct {
 type profile struct {
 	ID             string
 	DisplayName    string
-	Emails         []*plus.Person.EmailAddress
+	Emails         []*plus.EmailAddress
 }
 
 func init() {
