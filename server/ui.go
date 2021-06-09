@@ -77,8 +77,7 @@ type data struct {
 }
 
 type profile struct {
-	ID string
-	//DisplayName string
+	ID     string
 	Emails []*plus.EmailAddress
 }
 
@@ -691,8 +690,6 @@ func engineFromRequest(engineStr string) (*config.Engine, error) {
 func stripProfile(p *plus.Person) *profile {
 	return &profile{
 		Emails: p.EmailAddresses,
-		//DisplayName: p.Name,
-		//ImageURL:    p.Image.Url,
 	}
 }
 
