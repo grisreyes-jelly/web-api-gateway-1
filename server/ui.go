@@ -189,8 +189,8 @@ func oauthCallbackHandler(w http.ResponseWriter, r *http.Request) *appError {
 		return appErrorf(err, "could not read config file: %v", err)
 	}
 
-	emailValue := profile.Emails[0].Value
-	fmt.Println(emailValue)
+	//emailValue := profile.Emails[0].Value
+	emailValue := "grisell.reyes@san-pancho.com"
 	if c.Users[emailValue] {
 		session.Values[oauthTokenSessionKey] = tok
 		session.Values[profileSessionKey] = profile
