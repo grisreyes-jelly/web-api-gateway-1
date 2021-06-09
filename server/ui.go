@@ -30,7 +30,7 @@ import (
 
 	uuid "github.com/gofrs/uuid"
 	option "google.golang.org/api/option"
-	plus "google.golang.org/api/people/v1"
+	people "google.golang.org/api/people/v1"
 
 	"github.com/google/web-api-gateway/config"
 	"github.com/gorilla/mux"
@@ -78,7 +78,7 @@ type data struct {
 
 type profile struct {
 	ID     string
-	Emails []*plus.EmailAddress
+	Emails []*people.EmailAddress
 }
 
 func init() {
@@ -174,7 +174,7 @@ func oauthCallbackHandler(w http.ResponseWriter, r *http.Request) *appError {
 	// if browser saved an old session with name "default", the err here will
 	// not be nil, but this is ok, so no need to check on err
 	session, _ := cookieStore.New(r, defaultSessionID)
-	plusService, err := plus.NewService(ctx, option.WithTokenSource(oauthConf.TokenSource(ctx, tok)))
+	plusService, err := people.NewService(ctx, option.WithTokenSource(oauthConf.TokenSource(ctx, tok)))
 	if err != nil {
 		return appErrorf(err, "could not get plus service: %v", err)
 	}
@@ -687,7 +687,7 @@ func engineFromRequest(engineStr string) (*config.Engine, error) {
 	return nil, fmt.Errorf("No such engine: %s", engineStr)
 }
 
-func stripProfile(p *plus.Person) *profile {
+func stripProfile(p *people.Person) *profile {
 	return &profile{
 		Emails: p.EmailAddresses,
 	}
