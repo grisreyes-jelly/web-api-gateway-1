@@ -77,9 +77,9 @@ type data struct {
 }
 
 type profile struct {
-	ID             string
-	DisplayName    string
-	Emails         []*plus.EmailAddress
+	ID          string
+	DisplayName string
+	Emails      []*plus.EmailAddress
 }
 
 func init() {
@@ -191,6 +191,7 @@ func oauthCallbackHandler(w http.ResponseWriter, r *http.Request) *appError {
 	}
 
 	emailValue := profile.Emails[0].Value
+	fmt.Println(emailValue)
 	if c.Users[emailValue] {
 		session.Values[oauthTokenSessionKey] = tok
 		session.Values[profileSessionKey] = profile
@@ -689,8 +690,8 @@ func engineFromRequest(engineStr string) (*config.Engine, error) {
 
 func stripProfile(p *plus.Person) *profile {
 	return &profile{
-		Emails:      p.EmailAddress,
-		DisplayName: p.Name,
+		Emails: p.EmailAddresses,
+		//DisplayName: p.Name,
 		//ImageURL:    p.Image.Url,
 	}
 }
