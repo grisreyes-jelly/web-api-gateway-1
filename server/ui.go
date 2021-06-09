@@ -178,7 +178,7 @@ func oauthCallbackHandler(w http.ResponseWriter, r *http.Request) *appError {
 	if err != nil {
 		return appErrorf(err, "could not get plus service: %v", err)
 	}
-	person, err := plusService.People.Get("me").Do()
+	person, err := plusService.People.Get("people/me").Do()
 	if err != nil {
 		return appErrorf(err, "could not fetch Google profiles: %v", err)
 	}
