@@ -178,7 +178,7 @@ func oauthCallbackHandler(w http.ResponseWriter, r *http.Request) *appError {
 	if err != nil {
 		return appErrorf(err, "could not get people service: %v", err)
 	}
-	person, err := peopleService.people.Get("people/me").Do()
+	person, err := peopleService.People.Get("people/me").Do()
 	if err != nil {
 		return appErrorf(err, "could not fetch Google profiles: %v", err)
 	}
@@ -688,6 +688,7 @@ func engineFromRequest(engineStr string) (*config.Engine, error) {
 
 func stripProfile(p *people.Person) *profile {
 	return &profile{
+		ID:     defaultSessionID,
 		Emails: p.EmailAddresses,
 	}
 }
