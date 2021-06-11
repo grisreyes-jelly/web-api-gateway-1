@@ -178,7 +178,7 @@ func oauthCallbackHandler(w http.ResponseWriter, r *http.Request) *appError {
 	if err != nil {
 		return appErrorf(err, "could not get people service: %v", err)
 	}
-	person, err := peopleService.People.Get("people/me").Do()
+	person, err := peopleService.People.Get("people/me").PersonFields("emailAddresses").Sources("READ_SOURCE_TYPE_PROFILE").Do()
 	if err != nil {
 		return appErrorf(err, "could not fetch Google profiles: %v", err)
 	}
