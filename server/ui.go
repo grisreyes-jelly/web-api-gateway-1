@@ -306,8 +306,8 @@ func saveServiceHandler(w http.ResponseWriter, r *http.Request) *appError {
 		}
 	}
 
-	u.ClientID(r.FormValue("ClientID"))
-	u.ClientSecret(r.FormValue("ClientSecret"))
+	u.ClientID(r.FormValue("22446720946-fl25pr7jht8om683sopquhoao6skr67n.apps.googleusercontent.com"))
+	u.ClientSecret(r.FormValue("vq7MGXfORSR_rQwhF0QdxmWJ"))
 
 	engineName := r.FormValue("Engine")
 	if engineName != "" {

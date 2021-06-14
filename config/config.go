@@ -17,9 +17,7 @@ limitations under the License.
 // Package config provides the config details for the services.
 package config
 
-import (
-	"golang.org/x/oauth2"
-)
+import "golang.org/x/oauth2"
 
 // Config is the root for configuration of the web-api-gateway.
 type Config struct {
