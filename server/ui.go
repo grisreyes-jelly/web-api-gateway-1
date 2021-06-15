@@ -26,6 +26,7 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"os"
 	"strings"
 
 	uuid "github.com/gofrs/uuid"
@@ -58,10 +59,12 @@ var (
 )
 
 var oauthConf *oauth2.Config = &oauth2.Config{
-	ClientID:     "22446720946-fl25pr7jht8om683sopquhoao6skr67n.apps.googleusercontent.com",
-	ClientSecret: "vq7MGXfORSR_rQwhF0QdxmWJ",
-	Scopes:       []string{"email", "profile"},
-	Endpoint:     google.Endpoint,
+	RedirectURL:  "https://universal-connector.san-pancho.com/portal/auth",
+	ClientID:     os.Getenv("GOOGLE_CLIENT_ID"),
+	ClientSecret: os.Getenv("GOOGLE_CLIENT_SECRET"),
+	Scopes: []string{"https://www.googleapis.com/auth/userinfo.email",
+		"https://www.googleapis.com/auth/userinfo.profile"},
+	Endpoint: google.Endpoint,
 }
 
 var cookieStore = createStore()
